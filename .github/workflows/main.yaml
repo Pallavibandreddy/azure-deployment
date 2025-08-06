@@ -94,17 +94,14 @@ jobs:
                 sudo apt-get install -y docker.io
                 sudo systemctl enable docker
                 sudo systemctl start docker
-                sudo usermod -aG docker $USER
             fi
-            docker --version
-
-            # Deploy container
-            docker stop my-python-app || true
-            docker rm my-python-app || true
-            docker rmi my-python-app || true
-            docker load -i ~/app/my-python-app.tar
-            docker run -d -p 80:80 --name my-python-app my-python-app
-            docker logs my-python-app
+            sudo docker --version
+            sudo docker stop my-python-app || true
+            sudo docker rm my-python-app || true
+            sudo docker rmi my-python-app || true
+            sudo docker load -i ~/app/my-python-app.tar
+            sudo docker run -d -p 80:80 --name my-python-app my-python-app
+            sudo docker logs my-python-app
 
   production:
     needs: staging
@@ -154,17 +151,14 @@ jobs:
                 sudo apt-get install -y docker.io
                 sudo systemctl enable docker
                 sudo systemctl start docker
-                sudo usermod -aG docker $USER
             fi
-            docker --version
-
-            # Deploy container
-            docker stop my-python-app || true
-            docker rm my-python-app || true
-            docker rmi my-python-app || true
-            docker load -i ~/app/my-python-app.tar
-            docker run -d -p 80:80 --name my-python-app my-python-app
-            docker logs my-python-app
+            sudo docker --version
+            sudo docker stop my-python-app || true
+            sudo docker rm my-python-app || true
+            sudo docker rmi my-python-app || true
+            sudo docker load -i ~/app/my-python-app.tar
+            sudo docker run -d -p 80:80 --name my-python-app my-python-app
+            sudo docker logs my-python-app
 
   notify:
     needs: production
